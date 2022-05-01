@@ -1,4 +1,4 @@
-# Live Chatting App (Working Progress)
+# Live Chatting App (Work in Progress)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
