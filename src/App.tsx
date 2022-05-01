@@ -7,9 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-      <div className="absolute w-screen h-screen left-0 top-0 bg-black bg-opacity-70 z-0 pointer-events-none" />
-      <div className="bg-repeated w-full h-screen px-8 py-6 bg-opacity-10 bg-black z-auto overflow-hidden">
-        <div className="relative w-full h-full overflow-hidden">
+      <div className="fixed w-full h-full left-0 top-0 bg-black bg-opacity-70 z-10 pointer-events-none" />
+      <div className="flex justify-center items-center bg-repeated bg-repeat w-full min-h-screen h-full box-border px-8 py-6 bg-opacity-10 bg-black z-0">
+        <div className="relative w-full h-full z-30">
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />

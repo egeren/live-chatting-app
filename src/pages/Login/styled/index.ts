@@ -5,18 +5,11 @@ export const Container = styled.div`
     flex
     flex-col
     text-white
+    justify-center
     items-center
     font-handwrite
 
-    2xl:pt-52
 
-    xl:pt-24
-
-    md:pt-14
-
-    sm:pt-24
-
-    pt-10
 
     
 `;
