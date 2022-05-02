@@ -34,7 +34,7 @@ function ProfilePhoto(props: ProfilePhotoProps) {
           onChange={handlePhotoChange}
           accept="image/*"
         />
-        <IoAdd className="w-1/3 h-1/3" />
+        <IoAdd className="w-1/3 h-1/3 text-white" />
       </UploadImageContainer>
     </Container>
   );
