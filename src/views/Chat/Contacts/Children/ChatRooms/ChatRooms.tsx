@@ -18,6 +18,7 @@ function ChatRooms(props: ContactBarProps) {
     name: 'React.js Dev Team',
     msg: 'David: yes, we should refactor that',
   };
+  console.log('chatroom render');
   return (
     <Container>
       <div className="flex flex-col">
@@ -39,4 +40,4 @@ function ChatRooms(props: ContactBarProps) {
   );
 }
 
-export default ChatRooms;
+export default React.memo(ChatRooms);

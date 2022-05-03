@@ -6,7 +6,6 @@ export const Container = styled.div`
     props.iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row'}
     items-center
     justify-center
-    bg-white
     font-primary
     overflow-hidden
     px-2

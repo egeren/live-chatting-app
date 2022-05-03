@@ -5,7 +5,6 @@ import { ChatImageContainer, Container } from './styled';
 
 function Chat(props: ChatProps) {
   const { chatRoom, expanded } = props;
-  console.log(props);
   return (
     <Container>
       <ChatImageContainer>

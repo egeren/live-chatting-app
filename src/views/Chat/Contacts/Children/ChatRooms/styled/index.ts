@@ -11,6 +11,8 @@ export const Container = styled.div`
 export const ChatCategory = styled.h2`
   text-white 
   font-primary
+  flex
+  items-center
   ${(p: ContactBarProps) =>
     p.expanded
       ? `

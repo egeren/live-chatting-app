@@ -1,8 +1,9 @@
 import { ContactBarProps } from 'helpers/interfaces/store';
 import styled from 'tailwind-styled-components';
-
 export const Container = styled.div`
   contacts-container
+  flex
+  flex-col
   xl:w-[350px]
   lg:w-[300px]
   ${(p: ContactBarProps) =>

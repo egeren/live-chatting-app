@@ -6,10 +6,10 @@ function TextInput(props: TextInputProps) {
   const { placeholder, className, icon, iconClass, iconPosition } = props;
   return (
     <Container styles={className} iconPosition={iconPosition}>
-      <IconContainer styles={iconClass}>{icon}</IconContainer>
+      {icon && <IconContainer styles={iconClass}>{icon}</IconContainer>}
       <input
         type="text"
-        className="w-full h-full outline-none pl-2 text-black"
+        className="w-full h-full outline-none pl-1 truncate bg-transparent"
         placeholder={placeholder}
       />
     </Container>
