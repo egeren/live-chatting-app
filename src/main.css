@@ -11,3 +11,20 @@ body{
   height: 100vh;
   background: url('../public/images/repeated-bg.jfif');
 }
+
+::-webkit-scrollbar{
+  width: 3px;
+  height: 3px;
+  background: #454545;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #393939;
+  border-radius: 5px;
+}
+
+.no-scrollbar::-webkit-scrollbar{
+  width:0px;
+  height: 0px;
+  background: none;
+}

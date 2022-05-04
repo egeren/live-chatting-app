@@ -3,7 +3,7 @@ import { ContactBarProps } from 'helpers/interfaces/store';
 
 const initialState: ContactBarProps = {
   contactBarSize: 0,
-  expanded: true,
+  expanded: window.innerWidth >= 976,
 };
 
 const { reducer, actions } = createSlice({

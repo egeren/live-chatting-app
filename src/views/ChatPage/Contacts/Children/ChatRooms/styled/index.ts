@@ -2,10 +2,10 @@ import { ContactBarProps } from 'helpers/interfaces/store';
 import styled from 'tailwind-styled-components';
 
 export const Container = styled.div`
-  w-full
-  h-full
-  overflow-hidden
+  flex
+  flex-col
   transition-all
+  pb-4
 `;
 
 export const ChatCategory = styled.h2`

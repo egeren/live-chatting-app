@@ -1,3 +1,3 @@
-import Chat from './Chat';
+import Chat from './ChatPage';
 
 export default Chat;

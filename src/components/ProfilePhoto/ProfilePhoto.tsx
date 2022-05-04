@@ -47,7 +47,7 @@ const Photo = (props: { photo: string | undefined }) => {
     return (
       <img src={photo} alt="profile" className="w-full h-full object-cover" />
     );
-  } else return <IoPeople className="w-2/3 h-2/3" />;
+  } else return <IoPeople className="w-2/3 h-2/3 text-white" />;
 };
 
 export default ProfilePhoto;

@@ -15,6 +15,8 @@ function App() {
       const window = e.target as Window;
       if (window.innerWidth >= 976) {
         dispatch(contactBarActions.setContactsBar(true));
+      } else {
+        dispatch(contactBarActions.setContactsBar(false));
       }
     };
     window.addEventListener('resize', handleResize);
@@ -37,7 +39,7 @@ function App() {
       </div>
       <ToastContainer />
       <button
-        className="fixed left-52 bottom-10 mx-auto z-50 bg-white"
+        className="fixed md:left-96 left-32 top-32 mx-auto z-50 bg-white"
         onClick={handleTest}
       >
         TEST BUTTON

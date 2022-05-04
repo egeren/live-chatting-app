@@ -9,6 +9,8 @@ export const Container = styled.div`
     font-primary
     overflow-hidden
     px-2
+    bg-white
+    text-black
     ${(props: { styles: string }) => props.styles}
 `;
 

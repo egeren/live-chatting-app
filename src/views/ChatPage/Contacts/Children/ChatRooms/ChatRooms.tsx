@@ -10,12 +10,14 @@ function ChatRooms(props: ContactBarProps) {
   const chatRoom1 = {
     id: '1',
     name: 'Global Room 1',
+    img: 'images/chat-logo.svg',
     msg: 'Jane: yes im working on it',
   };
 
   const chatRoom2 = {
     id: '2',
     name: 'React.js Dev Team',
+    img: 'images/react.png',
     msg: 'David: yes, we should refactor that',
   };
   console.log('chatroom render');
@@ -26,7 +28,7 @@ function ChatRooms(props: ContactBarProps) {
 
         <Chat {...props} chatRoom={chatRoom1} />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-shrink-0 flex-col">
         <div className="flex flex-row items-center justify-between pr-3">
           <ChatCategory {...props}>Private Chat Rooms</ChatCategory>
           {expanded && (
@@ -34,6 +36,16 @@ function ChatRooms(props: ContactBarProps) {
           )}
         </div>
 
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat {...props} chatRoom={chatRoom2} />
         <Chat {...props} chatRoom={chatRoom2} />
       </div>
     </Container>

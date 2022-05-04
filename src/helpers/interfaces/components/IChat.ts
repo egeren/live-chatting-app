@@ -3,6 +3,7 @@ import { ContactBarProps } from '../store';
 export interface ChatRoom {
   id: string;
   name: string;
+  img: string;
   msg: string;
 }
 

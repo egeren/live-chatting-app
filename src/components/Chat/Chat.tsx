@@ -9,7 +9,7 @@ function Chat(props: ChatProps) {
     <Container>
       <ChatImageContainer>
         <img
-          src="images/chat-logo.svg"
+          src={chatRoom.img}
           className="w-full h-full object-contain
         "
           alt="Global Chat Room Icon"
