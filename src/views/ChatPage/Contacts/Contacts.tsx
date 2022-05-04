@@ -3,8 +3,6 @@ import { useAppSelector } from 'hooks';
 import ChatRooms from './Children/ChatRooms';
 import ProfileInfo from './Children/ProfileInfo';
 import { Container } from './styled';
-import { TextInput } from 'components';
-import { IoSearch } from 'react-icons/io5';
 import SearchBar from './Children/SearchBar';
 import OnlineUsers from './Children/OnlineUsers';
 

@@ -1,5 +1,5 @@
 import ProfilePhoto from 'components/ProfilePhoto/ProfilePhoto';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function Message() {
   return (

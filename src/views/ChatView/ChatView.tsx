@@ -1,5 +1,5 @@
 import { Message, TextInput } from 'components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { IoSend } from 'react-icons/io5';
 import Lottie from 'react-lottie';
 import * as animationData from './women-message.json';

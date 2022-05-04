@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ChatCategory, Container } from './styled';
 import { Chat } from 'components';
 import { IoAdd } from 'react-icons/io5';
