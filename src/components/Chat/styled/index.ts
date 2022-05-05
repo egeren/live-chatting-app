@@ -15,7 +15,7 @@ hover:bg-[#545454]
   lg:px-4
   md:px-[18px]
   sm:px-[12px]
-  px-[5px]
+  px-[8px]
 `;
 
 export const ChatImageContainer = styled.div`

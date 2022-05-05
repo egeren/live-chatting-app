@@ -19,7 +19,7 @@ const lottieOptions = {
 
 function ChatView() {
   return (
-    <div className="flex flex-col justify-end flex-1 px-4 pt-3">
+    <div className="flex flex-col justify-end flex-1 pl-4 pr-1 pt-3">
       <ChatScreen />
     </div>
   );

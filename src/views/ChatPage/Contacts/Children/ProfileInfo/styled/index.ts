@@ -18,7 +18,7 @@ export const Container = styled.div`
   lg:px-4
   md:px-[15px]
   sm:px-[10px]
-  px-[5px]
+  px-[8px]
 
   md:py-4
   py-2

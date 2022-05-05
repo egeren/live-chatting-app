@@ -1,10 +1,7 @@
+import React from 'react';
 import { ProfilePhoto } from 'components';
 import { ContactBarProps } from 'helpers/interfaces/store';
-import { getContactsBarSize } from 'helpers/util/uiHelpers';
-import { useAppDispatch } from 'hooks';
-import React, { useState, useEffect } from 'react';
 import { IoLogOutOutline, IoSettings } from 'react-icons/io5';
-import { contactBarActions } from 'store';
 import { Container, IconsContainer } from './styled';
 
 function ProfileInfo(props: ContactBarProps) {

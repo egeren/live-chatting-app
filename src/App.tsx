@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Chat from 'pages/Chat';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppDispatch } from 'hooks';
-import { contactBarActions } from 'store';
+import { contactBarActions, roomDetailsBarActions } from 'store';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -15,8 +15,10 @@ function App() {
       const window = e.target as Window;
       if (window.innerWidth >= 976) {
         dispatch(contactBarActions.setContactsBar(true));
+        dispatch(roomDetailsBarActions.setRoomDetailsBar(true));
       } else {
         dispatch(contactBarActions.setContactsBar(false));
+        dispatch(roomDetailsBarActions.setRoomDetailsBar(false));
       }
     };
     window.addEventListener('resize', handleResize);
@@ -25,6 +27,9 @@ function App() {
 
   const handleTest = () => {
     dispatch(contactBarActions.toggleContactsBar());
+  };
+  const handleTest2 = () => {
+    dispatch(roomDetailsBarActions.toggleRoomDetailsBar());
   };
   return (
     <>
@@ -41,6 +46,12 @@ function App() {
       <button
         className="fixed md:left-96 left-32 top-32 mx-auto z-50 bg-white"
         onClick={handleTest}
+      >
+        TEST BUTTON
+      </button>
+      <button
+        className="fixed md:left-96 right-32 top-32 mx-auto z-50 bg-white"
+        onClick={handleTest2}
       >
         TEST BUTTON
       </button>

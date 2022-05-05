@@ -1,3 +1,4 @@
 import { ContactBarProps } from '../store/IContactBar';
+import { RoomDetailsBarProps } from './IRoomDetailsBar';
 
-export type { ContactBarProps };
+export type { ContactBarProps, RoomDetailsBarProps };
