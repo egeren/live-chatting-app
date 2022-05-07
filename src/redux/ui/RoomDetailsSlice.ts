@@ -13,9 +13,7 @@ const { reducer, actions } = createSlice({
   initialState: initialState,
   reducers: {
     toggleRoomDetailsBar: (state) => {
-      if (window.innerWidth < 976) {
-        state.expanded = !state.expanded;
-      }
+      state.expanded = !state.expanded;
     },
     setRoomDetailsBar: (state, action: PayloadAction<boolean>) => {
       state.expanded = action.payload;

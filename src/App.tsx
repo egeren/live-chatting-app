@@ -15,7 +15,7 @@ function App() {
       const window = e.target as Window;
       if (window.innerWidth >= 976) {
         dispatch(contactBarActions.setContactsBar(true));
-        dispatch(roomDetailsBarActions.setRoomDetailsBar(true));
+        dispatch(roomDetailsBarActions.setRoomDetailsBar(false));
       } else {
         dispatch(contactBarActions.setContactsBar(false));
         dispatch(roomDetailsBarActions.setRoomDetailsBar(false));
@@ -44,13 +44,13 @@ function App() {
       </div>
       <ToastContainer />
       <button
-        className="fixed md:left-96 left-32 top-32 mx-auto z-50 bg-white"
+        className="fixed md:left-96 w-20 left-32 top-32 mx-auto z-50 bg-white"
         onClick={handleTest}
       >
         TEST BUTTON
       </button>
       <button
-        className="fixed md:left-96 right-32 top-32 mx-auto z-50 bg-white"
+        className="fixed md:left-96 w-20 right-32 top-32 mx-auto z-50 bg-white"
         onClick={handleTest2}
       >
         TEST BUTTON

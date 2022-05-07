@@ -19,7 +19,7 @@ const lottieOptions = {
 
 function ChatView() {
   return (
-    <div className="flex flex-col justify-end flex-1 pl-4 pr-1 pt-3">
+    <div className="flex flex-col justify-end flex-1 px-4 pt-3">
       <ChatScreen />
     </div>
   );
@@ -49,7 +49,7 @@ const ChatScreen = () => {
       </div>
       <div className="flex bg-red pb-4">
         <TextInput
-          className="w-full h-16 px-3 bg-primary-300 text-white text-xl rounded-md"
+          className="w-full lg:h-16 md:h-12 h-12 px-3 bg-primary-300 text-white md:text-xl text-lg rounded-md"
           placeholder="Send message to Global Chat Room 1"
           icon={<IoSend />}
           iconPosition="right"

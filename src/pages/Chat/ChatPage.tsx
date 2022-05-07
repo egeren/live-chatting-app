@@ -9,7 +9,7 @@ function ChatPage() {
   const roomDetailsBarStore = useAppSelector((state) => state.roomDetailsBar);
   return (
     <div className="chat-wrapper w-full h-full flex flex-auto md:p-6 rounded-xl">
-      <div className="relative flex w-full h-full bg-primary-100 md:rounded-xl overflow-hidden lg:p-0 md:pl-[80px] sm:pl-[70px] pl-[60px] lg:pr-0 pr-[70px]">
+      <div className="relative flex w-full h-full bg-primary-100 md:rounded-xl overflow-hidden lg:p-0 md:pl-[80px] sm:pl-[70px] pl-[50px] lg:pr-0 md:pr-[70px] sm:pr-[70px] pr-[40px]">
         <Contacts />
         <ChatView />
         <RoomDetails />

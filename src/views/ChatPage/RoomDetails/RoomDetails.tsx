@@ -28,11 +28,11 @@ function RoomDetails() {
           Users in this room - 17
         </RoomMembersTitle>
         <div className="flex relative h-full">
-          <GroupMembers />
+          <GroupMembers {...roomDetailsBarStore} />
         </div>
       </div>
     </Container>
   );
 }
 
-export default RoomDetails;
+export default React.memo(RoomDetails);
