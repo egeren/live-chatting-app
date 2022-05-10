@@ -3,5 +3,7 @@ import TextInput from './TextInput/TextInput';
 import Chat from './Chat/Chat';
 import AvatarGroup from './AvatarGroup/AvatarGroup';
 import Message from './Message';
+import Popup from './Popup';
+import Button from './Button';
 
-export { ProfilePhoto, TextInput, Chat, AvatarGroup, Message };
+export { ProfilePhoto, TextInput, Chat, AvatarGroup, Message, Popup, Button };

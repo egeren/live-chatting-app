@@ -5,10 +5,13 @@ import ProfileInfo from './Children/ProfileInfo';
 import { Container } from './styled';
 import SearchBar from './Children/SearchBar';
 import OnlineUsers from './Children/OnlineUsers';
+import { popupActions } from 'store';
+import { CreateRoomPopup } from '../PopupViews';
 
 function Contacts() {
   const contactsBarStore = useAppSelector((state) => state.contactsBar);
 
+  console.log('sd');
   const handleContactBarClick = (e: any) => {
     e.stopPropagation();
     e.preventDefault();

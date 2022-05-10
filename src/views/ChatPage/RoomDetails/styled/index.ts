@@ -15,7 +15,7 @@ export const Container = styled.div`
   bg-primary-200
   text-white
   transition-all
-  pl-2
+  px-2
 
   ${(p: RoomDetailsBarProps) =>
     p.expanded ? 'w-[270px] z-50' : 'sm:w-[70px] w-[50px]'}
@@ -27,7 +27,7 @@ export const ProfilePhotoContainer = styled.div`
   ${(p: RoomDetailsBarProps) =>
     p.expanded
       ? 'w-[150px] h-[150px] mt-10'
-      : 'mt-5 md:w-[60px] md:h-[60px] md:-ml-3 w-[45px] h-[45px] -ml-2'}
+      : 'mt-5 md:w-[60px] md:h-[60px] w-[45px] h-[45px]'}
 `;
 
 export const RoomTitleContainer = styled.div`

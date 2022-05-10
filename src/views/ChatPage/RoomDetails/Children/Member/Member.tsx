@@ -5,7 +5,6 @@ import { MemberName, ProfilePhotoContainer } from '../GroupMembers/styled';
 import { RoomDetailsBarProps } from 'helpers/interfaces/store';
 
 const Member = (props: RoomDetailsBarProps) => {
-  console.log('member render');
   return (
     <div className="flex flex-row">
       <ProfilePhotoContainer {...props}>
