@@ -43,7 +43,7 @@ function App() {
         </BrowserRouter>
       </div>
       <ToastContainer />
-      <button
+      {/*<button
         className="fixed md:left-96 w-20 left-32 top-32 mx-auto z-50 bg-white"
         onClick={handleTest}
       >
@@ -54,7 +54,7 @@ function App() {
         onClick={handleTest2}
       >
         TEST BUTTON
-      </button>
+      </button>*/}
     </>
   );
 }

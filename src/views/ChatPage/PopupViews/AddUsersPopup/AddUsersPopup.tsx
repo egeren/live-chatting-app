@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ProfilePhoto, TextInput, Button } from 'components';
-import { IoClose } from 'react-icons/io5';
 import { IPopupContentProps } from 'helpers/interfaces/components';
+import { IoClose } from 'react-icons/io5';
+import { Button, ProfilePhoto, TextInput } from 'components';
 
-function CreateRoomPopup(props: IPopupContentProps) {
+function AddUsersPopup(props: IPopupContentProps) {
   const { closePopup } = props;
+
   return (
     <div className="relative flex flex-col room-create-popup bg-primary-100 max-w-[750px] md:w-2/3 sm:w-1/2 md:h-[450px] h-[350px] w-2/3 rounded-md">
       <IoClose
@@ -13,7 +14,7 @@ function CreateRoomPopup(props: IPopupContentProps) {
       />
       <div className="flex flex-row w-full title-container text-white pt-8">
         <h1 className="w-full font-primary text-white text-center md:text-4xl sm:text-xl text-xl">
-          Create Private Room
+          Add Users to Malatyalılar
         </h1>
       </div>
       <div className="flex items-center justify-center photo-container pt-10">
@@ -23,10 +24,6 @@ function CreateRoomPopup(props: IPopupContentProps) {
         />
       </div>
       <div className="flex flex-col items-center pt-8">
-        <TextInput
-          placeholder="Room Name"
-          className="bg-primary-300 md:w-[350px] w-2/3 h-10 rounded-md text-white"
-        />
         <div className="flex flex-row flex-1 gap-2 md:w-[350px] w-2/3 justify-between pt-4">
           <Button
             className="bg-[#838383] rounded-md md:w-[160px] w-6/12"
@@ -43,4 +40,4 @@ function CreateRoomPopup(props: IPopupContentProps) {
   );
 }
 
-export default CreateRoomPopup;
+export default AddUsersPopup;
