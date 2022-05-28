@@ -5,5 +5,17 @@ import AvatarGroup from './AvatarGroup/AvatarGroup';
 import Message from './Message';
 import Popup from './Popup';
 import Button from './Button';
+import Checkbox from './Checkbox';
+import List from './List';
 
-export { ProfilePhoto, TextInput, Chat, AvatarGroup, Message, Popup, Button };
+export {
+  ProfilePhoto,
+  TextInput,
+  Chat,
+  AvatarGroup,
+  Message,
+  Popup,
+  Button,
+  Checkbox,
+  List,
+};
