@@ -17,15 +17,15 @@ export const Container = styled.div`
   transition-all
   px-2
 
-  ${(p: RoomDetailsBarProps) =>
-    p.expanded ? 'w-[270px] z-50' : 'sm:w-[70px] w-[50px]'}
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded ? 'w-[270px] z-50' : 'sm:w-[70px] w-[50px]'}
 `;
 
 export const ProfilePhotoContainer = styled.div`
   flex flex-col self-center
   transition-all
-  ${(p: RoomDetailsBarProps) =>
-    p.expanded
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded
       ? 'w-[150px] h-[150px] mt-10'
       : 'mt-5 md:w-[60px] md:h-[60px] w-[45px] h-[45px]'}
 `;
@@ -33,16 +33,19 @@ export const ProfilePhotoContainer = styled.div`
 export const RoomTitleContainer = styled.div`
   flex flex-col text-center font-primary
   transition-all
-  ${(p: RoomDetailsBarProps) => (p.expanded ? ' pt-4 text-2xl' : 'text-[0px]')}
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded ? ' pt-4 text-2xl' : 'text-[0px]'}
 `;
 
 export const RoomDescriptionContainer = styled.div`
   flex flex-col-reverse text-center font-primary
   transition-all
-  ${(p: RoomDetailsBarProps) => (p.expanded ? 'text-base pt-3' : 'text-[0px]')}
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded ? 'text-base pt-3' : 'text-[0px]'}
 `;
 
 export const RoomMembersTitle = styled.h1`
   font-primary 
-  ${(p: RoomDetailsBarProps) => (p.expanded ? 'text-base pb-4' : 'text-[0px]')}
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded ? 'text-base pb-4' : 'text-[0px]'}
 `;

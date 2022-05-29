@@ -13,8 +13,8 @@ export const ChatCategory = styled.h2`
   font-primary
   flex
   items-center
-  ${(p: ContactBarProps) =>
-    p.expanded
+  ${(p: { $expanded: boolean }) =>
+    p.$expanded
       ? `
       xl:h-12
       h-7

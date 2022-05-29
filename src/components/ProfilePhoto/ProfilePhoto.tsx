@@ -9,10 +9,13 @@ function ProfilePhoto(props: ProfilePhotoProps) {
   const [selectedPhoto, setSelectedPhoto] = useState(photo);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.files);
-    if (e.target.files && e.target.files[0].type.includes('image')) {
-      console.log(e.target.files[0].type);
+    if (
+      e.target.files &&
+      e.target.files[0] &&
+      e.target.files[0].type.includes('image')
+    ) {
       setSelectedPhoto(URL.createObjectURL(e.target.files[0]));
+      if (onChange) onChange(e);
     } else {
       toast.error('Please select an image file.', {
         position: toast.POSITION.BOTTOM_CENTER,
@@ -25,7 +28,7 @@ function ProfilePhoto(props: ProfilePhotoProps) {
   };
 
   return (
-    <Container styles={className} editable={editable}>
+    <Container styles={className} $editable={editable}>
       <Photo photo={selectedPhoto} />
       <UploadImageContainer>
         <input

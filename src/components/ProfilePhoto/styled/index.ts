@@ -13,7 +13,7 @@ export const Container = styled.div`
     to-blue-500
     overflow-hidden
     relative
-    ${(p: { editable: boolean }) => (p.editable ? 'group' : '')}
+    ${(p: { $editable: boolean }) => (p.$editable ? 'group' : '')}
     ${(props: { styles: string }) => props.styles}
 `;
 

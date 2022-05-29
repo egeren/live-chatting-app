@@ -23,7 +23,7 @@ const Item = (props: ListItemProps) => {
   };
   return (
     <div
-      className="item-container select-none hover:bg-primary-200 py-3 px-5 flex gap-4 w-full h-fit items-center cursor-pointer"
+      className="item-container select-none hover:bg-primary-300 py-3 px-5 flex gap-4 w-full h-fit items-center cursor-pointer"
       onClick={handleClick}
     >
       {checkable && <Checkbox checked={isChecked} />}

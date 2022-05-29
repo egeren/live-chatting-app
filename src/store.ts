@@ -15,8 +15,15 @@ import {
   actions as popupActions,
 } from './redux/ui/PopupSlice';
 
+import {
+  reducer as userDataReducer,
+  actions as userDataActions,
+} from './redux/user/UserSlice';
+import { userMiddleWare } from 'redux/middleware/userMiddleware';
+
 const store = configureStore({
   reducer: {
+    userData: userDataReducer,
     contactsBar: contactBarReducer,
     roomDetailsBar: roomDetailsBarReducer,
     popup: popupReducer,
@@ -24,6 +31,11 @@ const store = configureStore({
 });
 
 export default store;
-export { contactBarActions, roomDetailsBarActions, popupActions };
+export {
+  contactBarActions,
+  roomDetailsBarActions,
+  popupActions,
+  userDataActions,
+};
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -2,8 +2,8 @@ import styled from 'tailwind-styled-components';
 
 export const Container = styled.div`
     flex
-  ${(props: { iconPosition: 'left' | 'right' }) =>
-    props.iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row'}
+  ${(props: { $iconPosition: 'left' | 'right' }) =>
+    props.$iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row'}
     items-center
     justify-center
     font-primary

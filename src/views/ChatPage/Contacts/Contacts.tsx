@@ -1,25 +1,24 @@
 import React, { MouseEventHandler } from 'react';
-import { useAppSelector } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import ChatRooms from './Children/ChatRooms';
 import ProfileInfo from './Children/ProfileInfo';
 import { Container } from './styled';
 import SearchBar from './Children/SearchBar';
 import OnlineUsers from './Children/OnlineUsers';
-import { popupActions } from 'store';
+import { contactBarActions, popupActions } from 'store';
 import { CreateRoomPopup } from '../PopupViews';
 
 function Contacts() {
   const contactsBarStore = useAppSelector((state) => state.contactsBar);
-
-  console.log('sd');
+  const dispatch = useAppDispatch();
+  const expanded = contactsBarStore.expanded;
   const handleContactBarClick = (e: any) => {
-    e.stopPropagation();
-    e.preventDefault();
+    dispatch(contactBarActions.toggleContactsBar());
     console.log(e);
   };
   return (
     <div onClick={handleContactBarClick} className="z-40">
-      <Container id="contacts-container" {...contactsBarStore}>
+      <Container id="contacts-container" $expanded={expanded}>
         <ProfileInfo {...contactsBarStore} />
         <div className="flex flex-col w-full h-full overflow-y-scroll">
           <ChatRooms {...contactsBarStore} />

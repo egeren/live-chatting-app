@@ -8,7 +8,7 @@ function CreateRoomPopup(props: IPopupContentProps) {
   return (
     <div className="relative flex flex-col room-create-popup bg-primary-100 max-w-[750px] md:w-2/3 sm:w-1/2 md:h-[450px] h-[350px] w-2/3 rounded-md">
       <IoClose
-        onClick={closePopup}
+        onClick={() => closePopup()}
         className="absolute right-4 top-4 text-white md:text-3xl text-xl p-[2px] box-content cursor-pointer hover:bg-black hover:bg-opacity-10 rounded-full"
       />
       <div className="flex flex-row w-full title-container text-white pt-8">
@@ -31,7 +31,7 @@ function CreateRoomPopup(props: IPopupContentProps) {
           <Button
             className="bg-[#838383] rounded-md md:w-[160px] w-6/12"
             value="Cancel"
-            onClick={closePopup}
+            onClick={() => closePopup()}
           />
           <Button
             className="bg-[#33B6FF] rounded-md md:w-[160px] w-6/12"

@@ -6,6 +6,7 @@ export interface TextInputProps {
   icon?: ReactElement;
   iconClass?: React.HTMLAttributes<HTMLParagraphElement>['className'];
   iconPosition?: 'left' | 'right';
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSend?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }

@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ContactBarProps } from 'helpers/interfaces/store';
 
 const initialState: ContactBarProps = {
-  contactBarSize: 0,
   expanded: window.innerWidth >= 976,
 };
 
@@ -17,9 +16,6 @@ const { reducer, actions } = createSlice({
     },
     setContactsBar: (state, action: PayloadAction<boolean>) => {
       state.expanded = action.payload;
-    },
-    setContactBarSize: (state, action: PayloadAction<number | undefined>) => {
-      state.contactBarSize = action.payload || 0;
     },
   },
 });

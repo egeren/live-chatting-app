@@ -5,8 +5,9 @@ import { IoLogOutOutline, IoSettings } from 'react-icons/io5';
 import { Container, IconsContainer } from './styled';
 
 function ProfileInfo(props: ContactBarProps) {
+  const { expanded } = props;
   return (
-    <Container {...props}>
+    <Container $expanded={expanded}>
       <ProfilePhoto
         className="xl:w-[70px] xl:h-[70px] lg:w-[60px] lg:h-[60px] md:w-[50px] md:h-[50px] sm:w-[50px] w-[40px] h-[40px] sm:h-[50px] flex flex-shrink-0"
         editable

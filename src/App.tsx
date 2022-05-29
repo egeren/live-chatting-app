@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { createContext, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/Login';
 import Chat from 'pages/Chat';
 import 'react-toastify/dist/ReactToastify.css';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useSocket } from 'hooks';
 import { contactBarActions, roomDetailsBarActions } from 'store';
+import { Socket } from 'socket.io-client';
+
+const SocketContext = React.createContext(null as Socket | null);
 
 function App() {
   const dispatch = useAppDispatch();
-
   useEffect(() => {
     const handleResize = (e: UIEvent) => {
       const window = e.target as Window;
@@ -31,16 +33,23 @@ function App() {
   const handleTest2 = () => {
     dispatch(roomDetailsBarActions.toggleRoomDetailsBar());
   };
+
+  console.log('APP ROOT RENDER!!');
+
+  const socket = useSocket();
+
   return (
     <>
       <div className="fixed w-full h-full left-0 top-0 bg-black bg-opacity-70 z-10 pointer-events-none" />
       <div className="relative w-full h-full z-30">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/chat" element={<Chat />} />
-          </Routes>
-        </BrowserRouter>
+        <SocketContext.Provider value={socket}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/chat" element={<Chat />} />
+            </Routes>
+          </BrowserRouter>
+        </SocketContext.Provider>
       </div>
       <ToastContainer />
       {/*<button
@@ -60,3 +69,4 @@ function App() {
 }
 
 export default App;
+export { SocketContext };

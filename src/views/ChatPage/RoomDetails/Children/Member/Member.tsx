@@ -5,13 +5,14 @@ import { MemberName, ProfilePhotoContainer } from '../GroupMembers/styled';
 import { RoomDetailsBarProps } from 'helpers/interfaces/store';
 
 const Member = (props: RoomDetailsBarProps) => {
+  const expanded = props.expanded;
   return (
     <div className="flex flex-row flex-1 h-full flex-shrink-0 overflow-hidden">
-      <ProfilePhotoContainer {...props}>
+      <ProfilePhotoContainer $expanded>
         <ProfilePhoto className="w-full h-full" />
       </ProfilePhotoContainer>
       <div className="flex flex-col justify-center overflow-hidden pl-2">
-        <MemberName {...props}>Jane Smith David Tennannnt</MemberName>
+        <MemberName $expanded>Jane Smith </MemberName>
       </div>
     </div>
   );

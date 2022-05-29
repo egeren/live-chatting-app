@@ -8,7 +8,7 @@ function AddUsersPopup(props: IPopupContentProps) {
   const { closePopup } = props;
 
   return (
-    <div className="relative flex flex-col flex-shrink room-create-popup bg-primary-100  md:w-2/3 max-h-[85vh] h-full w-11/12 rounded-md">
+    <div className="relative flex flex-col flex-shrink room-create-popup bg-primary-100  md:w-5/12 max-h-[85vh] h-full w-11/12 rounded-md">
       <IoClose
         onClick={closePopup}
         className="absolute right-4 top-4 text-white md:text-3xl text-xl p-[2px] box-content cursor-pointer hover:bg-black hover:bg-opacity-10 rounded-full"
@@ -19,8 +19,26 @@ function AddUsersPopup(props: IPopupContentProps) {
         </h1>
       </div>
       <div className="flex flex-1 overflow-hidden  items-start justify-center user-list-wrapper mt-10 ">
-        <div className="user-list-container bg-primary-300 flex flex-col self-stretch lg:w-6/12 w-10/12 rounded-sm overflow-y-scroll">
+        <div className="user-list-container bg-primary-200 flex flex-col self-stretch lg:w-7/12 w-10/12 rounded-sm overflow-y-scroll">
           <List>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
+            <List.Item checkable>
+              <Member expanded />
+            </List.Item>
             <List.Item checkable>
               <Member expanded />
             </List.Item>

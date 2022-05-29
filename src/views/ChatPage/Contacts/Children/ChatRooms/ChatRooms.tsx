@@ -31,13 +31,13 @@ function ChatRooms(props: ContactBarProps) {
   return (
     <Container>
       <div className="flex flex-col">
-        <ChatCategory {...props}>Global Chat Rooms</ChatCategory>
+        <ChatCategory $expanded={expanded}>Global Chat Rooms</ChatCategory>
 
-        <Chat {...props} chatRoom={chatRoom1} />
+        <Chat expanded chatRoom={chatRoom1} />
       </div>
       <div className="flex flex-shrink-0 flex-col">
         <div className="flex flex-row items-center justify-between pr-3">
-          <ChatCategory {...props}>Private Chat Rooms</ChatCategory>
+          <ChatCategory $expanded={expanded}>Private Chat Rooms</ChatCategory>
           {expanded && (
             <IoAdd
               onClick={handleCreateRoomClick}
@@ -46,17 +46,17 @@ function ChatRooms(props: ContactBarProps) {
           )}
         </div>
 
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
-        <Chat {...props} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
+        <Chat expanded={expanded} chatRoom={chatRoom2} />
       </div>
     </Container>
   );

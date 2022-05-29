@@ -4,7 +4,7 @@ import { useAppDispatch } from 'hooks';
 import { contactBarActions } from 'store';
 
 const initialState: RoomDetailsBarProps = {
-  expanded: window.innerWidth >= 976,
+  expanded: false,
 };
 
 const { reducer, actions } = createSlice({

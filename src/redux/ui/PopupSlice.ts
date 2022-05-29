@@ -3,10 +3,11 @@ import { IPopupProps } from 'helpers/interfaces/store/IPopup';
 
 import { Button } from 'components';
 import { IPopupContentProps } from 'helpers/interfaces/components';
+import { CreateRoomPopup } from 'views/ChatPage/PopupViews';
 
 const initialState: IPopupProps = {
   isOpen: false,
-  popupElement: () => null,
+  popupElement: null,
 };
 
 const { reducer, actions } = createSlice({
