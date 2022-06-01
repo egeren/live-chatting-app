@@ -1,12 +1,6 @@
+import { IRoomDataStore } from 'redux/rooms/RoomsSlice';
 import { ContactBarProps } from '../store';
 
-export interface ChatRoom {
-  id: string;
-  name: string;
-  img: string;
-  msg: string;
-}
-
 export interface ChatProps extends ContactBarProps {
-  chatRoom: ChatRoom;
+  chatRoom: IRoomDataStore;
 }

@@ -15,7 +15,7 @@ function Chat(props: ChatProps) {
       <Container>
         <ChatImageContainer>
           <img
-            src={chatRoom.img}
+            src={chatRoom.roomAvatar}
             className="w-full h-full object-contain
         "
             alt="Global Chat Room Icon"
@@ -24,10 +24,10 @@ function Chat(props: ChatProps) {
         {expanded && (
           <div className="w-full flex flex-col items-start justify-center overflow-hidden">
             <h2 className="text-white w-full font-primary font-semibold lg:text-base md:text-sm sm:text-xs text-xs sm:leading-5 leading-4 truncate">
-              {chatRoom.name}
+              {chatRoom.roomName}
             </h2>
             <p className="text-white max-w-full font-primary lg:text-sm md:text-xs sm:text-xs text-xs truncate">
-              {chatRoom.msg}
+              {chatRoom.roomMessages[chatRoom.roomMessages.length - 1]}
             </p>
           </div>
         )}

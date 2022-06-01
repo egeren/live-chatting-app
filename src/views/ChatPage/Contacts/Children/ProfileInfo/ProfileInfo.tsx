@@ -3,9 +3,11 @@ import { ProfilePhoto } from 'components';
 import { ContactBarProps } from 'helpers/interfaces/store';
 import { IoLogOutOutline, IoSettings } from 'react-icons/io5';
 import { Container, IconsContainer } from './styled';
+import { useAppSelector } from 'hooks';
 
 function ProfileInfo(props: ContactBarProps) {
   const { expanded } = props;
+  const userData = useAppSelector((state) => state.userData);
   return (
     <Container $expanded={expanded}>
       <ProfilePhoto
@@ -16,7 +18,7 @@ function ProfileInfo(props: ContactBarProps) {
       {(props.expanded || window.innerWidth > 768) && (
         <>
           <h2 className="text-white truncate font-primary xl:text-2xl lg:text-xl md:text-lg sm:text-base text-base">
-            Jane Smith
+            {userData.username}
           </h2>
           <IconsContainer>
             <IoSettings className="text-white cursor-pointer" />

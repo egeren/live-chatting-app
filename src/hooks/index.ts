@@ -6,6 +6,7 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 const socketUrl = 'localhost:8080';
+
 export const useSocket = () => {
   const socket = io(socketUrl);
   socket.on('connect', () => {

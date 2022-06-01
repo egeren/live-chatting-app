@@ -18,7 +18,7 @@ function TextInput(props: TextInputProps) {
         type="text"
         className="w-full h-full outline-none pl-1 truncate bg-transparent"
         placeholder={placeholder}
-        onKeyDown={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
     </Container>
   );

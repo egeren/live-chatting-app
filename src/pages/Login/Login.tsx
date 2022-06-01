@@ -8,6 +8,7 @@ import { SocketContext } from 'App';
 import { userDataActions } from 'store';
 import { IUserDataStore } from 'redux/user/UserSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Login() {
   const [profilePhoto, setProfilePhoto] = useState('default');
@@ -33,11 +34,18 @@ function Login() {
     socket?.on('logged-in', (data: IUserDataStore) => {
       data.loggedIn = true;
       dispatch(userDataActions.setUserData(data));
+      console.log(data);
       navigate('/chat');
     });
     socket?.on('login-error', (error) => {
       setLoading(false);
-      console.log(error);
+      toast.error(error, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        theme: 'light',
+      });
     });
   }, []);
 

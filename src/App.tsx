@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Login from './pages/Login';
 import Chat from 'pages/Chat';
 import 'react-toastify/dist/ReactToastify.css';
-import { useAppDispatch, useSocket } from 'hooks';
+import { useAppDispatch, useAppSelector, useSocket } from 'hooks';
 import { contactBarActions, roomDetailsBarActions } from 'store';
 import { Socket } from 'socket.io-client';
 

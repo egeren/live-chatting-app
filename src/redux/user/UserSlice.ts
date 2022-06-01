@@ -14,8 +14,6 @@ const initialState: IUserDataStore = {
   loggedIn: false,
 };
 
-console.log(initialState);
-
 const { actions, reducer } = createSlice({
   name: 'userData',
   initialState: initialState,
@@ -23,6 +21,7 @@ const { actions, reducer } = createSlice({
     setUserData: (state, action: PayloadAction<IUserDataStore>) => {
       state = action.payload;
       localStorage.setItem('user-data', JSON.stringify(state));
+      return state;
     },
     setUserId: (state, action) => {
       state.id = action.payload;
