@@ -1,28 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Message, TextInput } from 'components';
 import { IoSend } from 'react-icons/io5';
+import { IRoomDataStore } from 'redux/rooms/RoomsSlice';
+import { SocketContext } from 'App';
+import { useAppSelector } from 'hooks';
+import Typers from './Children/Typers';
 
-function ChatScreen() {
+export interface ChatScreenProps {
+  chatRoom: IRoomDataStore;
+}
+
+function ChatScreen(props: ChatScreenProps) {
+  const { chatRoom } = props;
+  const [lastTypingSend, setLastTypingSend] = useState<Date>(new Date(0));
+  const socket = useContext(SocketContext);
+  const userData = useAppSelector((state) => state.userData);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleSendMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    if (target.value !== '') {
+      socket?.emit('send-chat-message', {
+        roomId: chatRoom.id,
+        message: target.value,
+      });
+      setLastTypingSend(new Date(0));
+    }
+    target.value = '';
+  };
+
+  const handleTyping = () => {
+    if (lastTypingSend.getTime() + 5000 < new Date().getTime()) {
+      setLastTypingSend(new Date());
+      socket?.emit('typing', {
+        userId: userData.id,
+        roomId: chatRoom.id,
+        username: userData.username,
+      });
+      console.log('typing');
+    }
+  };
+
+  useEffect(() => {
+    if (chatContainerRef && chatContainerRef.current) {
+      chatContainerRef.current.scrollTo(
+        0,
+        chatContainerRef.current?.scrollHeight
+      );
+    }
+  }, [chatRoom.roomMessages]);
+
   return (
     <>
-      <div className="block flex-col justify-end h-full w-full pb-2 overflow-y-scroll">
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
+      <div
+        ref={chatContainerRef}
+        className="flex-col justify-end h-full w-full pb-2 overflow-y-scroll"
+      >
+        {chatRoom.roomMessages.map((message) => {
+          return <Message key={message.id} message={message} />;
+        })}
       </div>
-      <div className="flex py-2">
-        <p className="font-primary text-white">
-          <span className="font-bold">Jane</span> is typing...
-        </p>
+      <div className="flex py-2 min-h-[40px]">
+        <Typers chatRoom={chatRoom} />
       </div>
       <div className="flex bg-red pb-4">
         <TextInput
@@ -31,6 +70,8 @@ function ChatScreen() {
           icon={<IoSend />}
           iconPosition="right"
           iconClass="text-white cursor-pointer"
+          onSend={handleSendMessage}
+          onChange={handleTyping}
         />
       </div>
     </>

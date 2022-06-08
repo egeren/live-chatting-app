@@ -2,7 +2,7 @@ import { Button } from 'components';
 import { useAppSelector } from 'hooks';
 import React, { useState, useEffect } from 'react';
 import Lottie from 'react-lottie';
-import { AddUsersPopup } from 'views/ChatPage/PopupViews';
+import { AddUsersPopup } from 'views/PopupViews';
 import * as animationData from './users-lottie.json';
 import { useAppDispatch } from './../../../../hooks/index';
 import { popupActions } from 'store';
@@ -24,7 +24,7 @@ function EmptyScreen() {
     dispatch(popupActions.openPopup(AddUsersPopup));
   };
   return (
-    <div className="flex flex-col items-center justify-center flex-1 pb-28">
+    <div className="flex flex-col items-center justify-center flex-1">
       <div className="flex xl:w-[400px] lg:w-[300px] md:w-[280px] sm:w-[250px] w-[200px] z-0">
         <Lottie
           options={lottieOptions}

@@ -12,8 +12,8 @@ export const Container = styled.div`
   left-0
   ${(p: { $expanded: boolean }) =>
     p.$expanded
-      ? 'md:w-[250px] sm:w-[230px] w-[250px] z-50'
-      : 'md:w-[80px] sm:w-[70px] w-[60px]'}
+      ? 'contacts-bar-expanded md:w-[250px] sm:w-[230px] w-[250px] z-50'
+      : 'contacts-bar-collapsed md:w-[80px] sm:w-[70px] w-[60px]'}
   h-full
   pb-3
   bg-primary-200

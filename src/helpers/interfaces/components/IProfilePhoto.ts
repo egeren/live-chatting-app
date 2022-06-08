@@ -5,4 +5,5 @@ export interface ProfilePhotoProps {
   editable?: boolean;
   photo?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: 'profile' | 'chat';
 }

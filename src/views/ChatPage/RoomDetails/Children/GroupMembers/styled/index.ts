@@ -2,15 +2,13 @@ import { RoomDetailsBarProps } from 'helpers/interfaces/store';
 import styled from 'tailwind-styled-components';
 
 export const ProfilePhotoContainer = styled.div`
+  member-profile-container
   flex
-  flex-shrink-0
-  ${(p: { $expanded: boolean }) =>
-    p.$expanded
-      ? 'h-[50px] w-[50px]'
-      : 'sm:h-[50px] sm:w-[50px] w-[35px] h-[35px] no-scrollbar'}
+  flex-grow-1
 `;
 
 export const MemberName = styled.p`
+  member-name
   text-white 
   font-primary
   text-ellipsis
@@ -18,5 +16,5 @@ export const MemberName = styled.p`
   overflow-hidden
   w-full
   transition-all
-  ${(p: { $expanded: boolean }) => (p.$expanded ? 'text-lg' : 'text-[0px]')}
+  
 `;

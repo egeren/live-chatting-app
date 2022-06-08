@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { ProfilePhoto } from 'components';
+import { Photo } from 'components';
+import Tooltip from 'components/Tooltip';
 
 interface AvatarProps {
   avatar: string;
+  tooltipText: string;
+  isFirst: boolean;
 }
 
 function Avatar(props: AvatarProps) {
-  const { avatar } = props;
+  const { avatar, tooltipText, isFirst } = props;
+
+  const classNames = isFirst ? 'inline-flex' : 'inline-flex -ml-4';
+
   return (
-    <div className="inline-flex">
-      <ProfilePhoto className="w-14 h-14 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
-      <ProfilePhoto className="w-14 h-14 -ml-4 border-4 border-primary-200" />
+    <div className={classNames}>
+      <Tooltip text={tooltipText}>
+        <Photo
+          editable={false}
+          photo={avatar}
+          className="w-14 h-14 border-4 border-primary-200"
+        />
+      </Tooltip>
     </div>
   );
 }

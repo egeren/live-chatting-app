@@ -3,19 +3,24 @@ import { TextInput } from 'components';
 import { ContactBarProps } from 'helpers/interfaces/store';
 import { IoSearch } from 'react-icons/io5';
 
-function SearchBar(props: ContactBarProps) {
-  const { expanded } = props;
+interface SearchBarProps {
+  onSearch: (text: string) => void;
+}
+function SearchBar(props: SearchBarProps) {
+  const { onSearch } = props;
 
-  if (expanded) {
-    return (
+  return (
+    <div className="flex justify-center w-full h-full">
       <TextInput
-        className="w-full h-9 bg-primary-300 rounded-sm text-white xl:text-base md:text-sm sm:text-xs text-xs"
+        className="chat-search-textbox w-full h-9 bg-primary-300 rounded-sm text-white xl:text-base md:text-sm sm:text-xs text-xs"
         placeholder="Search users or chat rooms"
+        onChange={(e) => onSearch(e.target.value)}
+        onClick={(e) => e.stopPropagation()}
       />
-    );
-  } else {
-    return <IoSearch className="text-2xl text-white" />;
-  }
+
+      <IoSearch className="search-icon text-2xl text-white" />
+    </div>
+  );
 }
 
 export default SearchBar;

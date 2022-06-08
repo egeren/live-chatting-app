@@ -4,14 +4,16 @@ export interface IUserDataStore {
   id: string;
   username: string;
   avatar: string;
-  loggedIn: boolean;
+  isOnline: boolean;
+  token: string;
 }
 
 const initialState: IUserDataStore = {
   id: '',
   username: '',
   avatar: '',
-  loggedIn: false,
+  isOnline: false,
+  token: '',
 };
 
 const { actions, reducer } = createSlice({
@@ -34,6 +36,9 @@ const { actions, reducer } = createSlice({
     setUserAvatar: (state, action) => {
       state.avatar = action.payload;
       localStorage.setItem('user-data', JSON.stringify(state));
+    },
+    setUserStatus: (state, action) => {
+      state.isOnline = action.payload;
     },
   },
 });

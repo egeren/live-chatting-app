@@ -9,4 +9,5 @@ export interface TextInputProps {
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSend?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

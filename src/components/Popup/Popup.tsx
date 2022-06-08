@@ -13,9 +13,10 @@ function Popup(props: IPopupProps) {
   const closePopup = () => {
     dispatch(popupActions.closePopup());
   };
+  const popupData = popupStore.popupData;
   return (
     <div className="absolute top-0 left-0 w-screen h-screen bg-black bg-opacity-60 z-50 flex items-center justify-center">
-      {React.createElement(content, { closePopup })}
+      {React.createElement(content, { closePopup, popupData })}
     </div>
   );
 }

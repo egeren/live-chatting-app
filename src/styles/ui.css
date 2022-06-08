@@ -1,0 +1,173 @@
+/* This CSS file is all about manipulate 'collapsed' or 'expanded' state of the right and left bars. */
+/* Rest of it written in tailwind.css classes */
+
+
+/* room-details bar start */
+
+.room-details-expanded .profile-container{
+  width: 150px;
+  height: 150px;
+  margin-top:2.5rem;
+}
+
+.room-details-collapsed .profile-container{
+  width: 45px;
+  height:45px;
+  margin-top:1.25rem;
+}
+
+.room-details-expanded .room-title-container{
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.room-details-collapsed .room-title-container{
+  font-size: 0px;
+}
+
+.room-details-expanded .room-description-container{
+  font-size: 1rem;
+  padding-top: 0.75rem;
+}
+
+.room-details-collapsed .room-description-container{
+  font-size: 0px;
+}
+
+.room-details-collapsed .group-members-container::-webkit-scrollbar{
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+  
+
+.room-details-expanded .room-members-title{
+  font-size: 1rem;
+}
+
+.room-details-collapsed .room-members-title{
+  font-size: 0px;
+}
+
+.room-details-collapsed .add-users-button{
+  display: none;
+}
+
+.room-details-expanded .member-profile-container{
+  width:50px;
+  height: 50px;
+}
+
+.room-details-collapsed .member-profile-container{
+  width: 35px;
+  height: 35px;
+}
+
+.room-details-expanded .member-name{
+  font-size: 1.125rem;
+}
+
+.room-details-collapsed .member-name{
+  font-size: 0px;
+  display: none;
+}
+
+/* room-details bar end */
+
+/* contacts bar start */
+
+
+
+
+/* contacts bar end */
+
+.contacts-bar-collapsed .user-info-container{
+  display: none;
+}
+
+.contacts-bar-expanded .chat-category-title{
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
+.contacts-bar-collapsed .chat-category-title{
+  font-size: 0px;
+  height: 0px;
+}
+
+.contacts-bar-collapsed .create-room-btn{
+  display: none;
+}
+
+.contacts-bar-expanded .search-icon{
+  display: none;
+}
+
+.contacts-bar-collapsed .chat-search-textbox{
+  display: none;
+}
+
+
+/* 
+      ? `
+      xl:h-12
+      h-7
+      xl:py-4
+      lg:py-3
+      md:py-2
+      sm:py-1
+      py-1`
+      : `
+      y-0
+      h-0 
+      text-[0px] 
+      opacity-0
+
+
+
+/* xl */
+
+@media only screen and (min-width: 1440px){
+  .room-details-collapsed .profile-container{
+    width: 60px;
+    height: 60px;
+    margin-top:1.5rem;
+  }
+
+  .contacts-bar-expanded .chat-category-title{
+    height: 3rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+  }
+
+}
+/* md */
+
+@media only screen and (min-width: 768px){
+  .room-details-collapsed .profile-container{
+    width: 60px;
+    height: 60px;
+    margin-top:1.5rem;
+  }
+
+  .contacts-bar-expanded .chat-category-title{
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+  }
+
+}
+
+/* sm */
+
+@media only screen and (min-width: 480px){
+  .room-details-collapsed .member-profile-container{
+    height: 50px;
+    width: 50px;
+  }
+
+  .room-details-collapsed .group-members-container::-webkit-scrollbar{
+    width: 3px;
+    height: 3px;
+    background: #454545;
+  }
+}

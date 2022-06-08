@@ -24,6 +24,17 @@ import {
   reducer as roomsDataReducer,
   actions as roomsDataActions,
 } from './redux/rooms/RoomsSlice';
+
+import {
+  reducer as usersDataReducer,
+  actions as usersDataActions,
+} from './redux/data/usersStore';
+
+import {
+  reducer as chatScreenReducer,
+  actions as chatScreenActions,
+} from './redux/ui/ChatSlice';
+
 import { userMiddleWare } from 'redux/middleware/userMiddleware';
 
 const store = configureStore({
@@ -33,6 +44,8 @@ const store = configureStore({
     roomDetailsBar: roomDetailsBarReducer,
     popup: popupReducer,
     roomsData: roomsDataReducer,
+    usersData: usersDataReducer,
+    chatScreenData: chatScreenReducer,
   },
 });
 
@@ -43,6 +56,8 @@ export {
   popupActions,
   userDataActions,
   roomsDataActions,
+  usersDataActions,
+  chatScreenActions,
 };
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

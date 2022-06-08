@@ -1,5 +1,5 @@
 import React, { createContext, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/Login';
 import Chat from 'pages/Chat';
@@ -27,17 +27,9 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleTest = () => {
-    dispatch(contactBarActions.toggleContactsBar());
-  };
-  const handleTest2 = () => {
-    dispatch(roomDetailsBarActions.toggleRoomDetailsBar());
-  };
-
   console.log('APP ROOT RENDER!!');
 
   const socket = useSocket();
-
   return (
     <>
       <div className="fixed w-full h-full left-0 top-0 bg-black bg-opacity-70 z-10 pointer-events-none" />

@@ -12,6 +12,17 @@ module.exports = {
         repeated: 'url("../public/images/repeated-bg.jfif")',
       },
       colors: {
+        red: {
+          100: '#fcebea',
+          200: '#f8d1d0',
+          300: '#f2b8b6',
+          400: '#ee9f9d',
+          500: '#ec8b8a',
+          600: '#e77d7c',
+          700: '#e26a68',
+          800: '#de5b57',
+          900: '#d84746',
+        },
         primary: {
           100: '#4A4A4A',
           200: '#3F3F3F',

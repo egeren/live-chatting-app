@@ -3,11 +3,12 @@ import { IPopupProps } from 'helpers/interfaces/store/IPopup';
 
 import { Button } from 'components';
 import { IPopupContentProps } from 'helpers/interfaces/components';
-import { CreateRoomPopup } from 'views/ChatPage/PopupViews';
+import { CreateRoomPopup } from 'views/PopupViews';
 
 const initialState: IPopupProps = {
   isOpen: false,
   popupElement: null,
+  popupData: null,
 };
 
 const { reducer, actions } = createSlice({
@@ -23,6 +24,9 @@ const { reducer, actions } = createSlice({
     },
     closePopup(state) {
       state.isOpen = false;
+    },
+    setPopupData(state, action: PayloadAction<any>) {
+      state.popupData = action.payload;
     },
   },
 });

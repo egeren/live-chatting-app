@@ -9,26 +9,11 @@ export const Container = styled.div`
 `;
 
 export const ChatCategory = styled.h2`
+  chat-category-title
   text-white 
   font-primary
   flex
   items-center
-  ${(p: { $expanded: boolean }) =>
-    p.$expanded
-      ? `
-      xl:h-12
-      h-7
-      xl:py-4
-      lg:py-3
-      md:py-2
-      sm:py-1
-      py-1`
-      : `
-      y-0
-      h-0 
-      text-[0px] 
-      opacity-0
-  `}	
   
   truncate
   transition-all
