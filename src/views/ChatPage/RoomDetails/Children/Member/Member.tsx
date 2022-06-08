@@ -17,7 +17,6 @@ const Member = (props: IMemberProps) => {
       photoContainer.current.style.width = `${photoContainer.current.clientHeight}px`;
     }
   }, [photoContainer]);
-  console.log('memberRender');
   return (
     <div className="flex flex-row h-full flex-shrink-0 overflow-hidden">
       <div

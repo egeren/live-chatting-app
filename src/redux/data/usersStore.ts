@@ -6,7 +6,8 @@ const { actions, reducer } = createSlice({
   initialState: [] as IUserDataStore[],
   reducers: {
     setUsersData: (state, action: PayloadAction<IUserDataStore[]>) => {
-      return action.payload;
+      state = action.payload;
+      return state;
     },
     addUser: (state, action: PayloadAction<IUserDataStore>) => {
       state.push(action.payload);

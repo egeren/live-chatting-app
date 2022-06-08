@@ -12,7 +12,7 @@ import {
   usersDataActions,
 } from 'store';
 import { ITyper } from 'redux/ui/ChatSlice';
-import { useFindUser } from './useFindUser';
+
 import { InvitedToRoomPopup } from 'views/PopupViews';
 
 const socketUrl = 'localhost:8080';
@@ -21,7 +21,6 @@ export const useSocket = () => {
   let error_msg: React.ReactText;
   const selectedChat = useAppSelector((state) => state.chatScreenData);
   const dispatch = useAppDispatch();
-  const findUser = useFindUser();
 
   const socket = useMemo(() => {
     return io(socketUrl, {
@@ -42,7 +41,6 @@ export const useSocket = () => {
 
   useEffect(() => {
     socket.on('connect', () => {
-      console.log('socket connected');
       if (toast.isActive(error_msg)) {
         toast.dismiss(error_msg);
         toast.success('Connected to server!');
@@ -98,12 +96,12 @@ export const useSocket = () => {
     });
 
     socket?.on('invite-user', (data: IRoomDataStore) => {
-      const inviter = findUser(data.roomCreator);
       const popupData = {
         room: data,
-        inviter: inviter,
       };
-      console.log(data);
+
+      console.log(data.roomCreator);
+
       dispatch(popupActions.setPopupData(popupData));
       dispatch(popupActions.openPopup(InvitedToRoomPopup));
     });
@@ -115,6 +113,7 @@ export const useSocket = () => {
 
     socket?.on('update-users', (data) => {
       dispatch(usersDataActions.setUsersData(data));
+      console.log(data);
     });
 
     socket?.on('update-rooms', (data: IRoomDataStore[]) => {
@@ -141,7 +140,6 @@ export const useSocket = () => {
       socket?.off('update-rooms');
     };
   }, []);
-  console.log('usesocket rendered');
 
   return socket;
 };

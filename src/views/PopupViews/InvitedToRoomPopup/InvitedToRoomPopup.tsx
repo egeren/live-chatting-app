@@ -2,6 +2,7 @@ import { SocketContext } from 'App';
 import { Button, Photo, TextInput } from 'components';
 import { IPopupContentProps } from 'helpers/interfaces/components';
 import { useAppDispatch, useAppSelector } from 'hooks';
+import { useFindUser } from 'hooks/useFindUser';
 import React, { useState, useEffect, useContext } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { IRoomDataStore } from 'redux/rooms/RoomsSlice';
@@ -11,18 +12,17 @@ function InvitedToRoomPopup(props: IPopupContentProps) {
   const { closePopup, popupData } = props;
   const socket = useContext(SocketContext);
   const userData = useAppSelector((state) => state.userData);
+  const usersData = useAppSelector((state) => state.usersData);
+  console.log(usersData);
   const dispatch = useAppDispatch();
+  const findUser = useFindUser();
   const handleInviteAccept = () => {
-    try {
-      const room = popupData.room as IRoomDataStore;
-      const data = { roomId: room.id, user: userData };
-      socket?.emit('accept-invite', data);
-      dispatch(roomsDataActions.addRoom(room));
-      dispatch(roomsDataActions.addUserToRoom(data));
-      closePopup();
-    } catch (e) {
-      console.log(e);
-    }
+    const room = popupData.room as IRoomDataStore;
+    const data = { roomId: room.id, user: userData };
+    socket?.emit('accept-invite', data);
+    dispatch(roomsDataActions.addRoom(room));
+    dispatch(roomsDataActions.addUserToRoom(data));
+    closePopup();
   };
 
   return (
@@ -33,7 +33,8 @@ function InvitedToRoomPopup(props: IPopupContentProps) {
       />
       <div className="flex flex-row w-full title-container text-white px-10 pt-4">
         <h1 className="w-full font-primary text-white text-center md:text-4xl sm:text-xl text-xl">
-          {popupData.inviter} invited you to join room {popupData.room.roomName}
+          {findUser(popupData.room.roomCreator)?.username} invited you to join
+          room {popupData.room.roomName}
         </h1>
       </div>
       <div className="flex items-center justify-center photo-container pt-10">

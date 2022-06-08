@@ -37,7 +37,6 @@ function ChatScreen(props: ChatScreenProps) {
         roomId: chatRoom.id,
         username: userData.username,
       });
-      console.log('typing');
     }
   };
 

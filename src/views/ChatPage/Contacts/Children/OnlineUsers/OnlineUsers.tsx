@@ -24,18 +24,20 @@ const Expanded = (props: { usersData: IUserDataStore[] }) => {
   return (
     <>
       <h3 className="font-primary text-white py-2">
-        Online Users ({usersData.length})
+        Online Users ({usersData.filter((user) => user.isOnline).length})
       </h3>
       <div className="flex w-full">
         <AvatarGroup>
-          {usersData.map((user, index) => (
-            <AvatarGroup.Avatar
-              isFirst={index === 0}
-              key={user.id}
-              avatar={user.avatar}
-              tooltipText={user.username}
-            />
-          ))}
+          {usersData
+            .filter((user) => user.isOnline)
+            .map((user, index) => (
+              <AvatarGroup.Avatar
+                isFirst={index === 0}
+                key={index}
+                avatar={user.avatar}
+                tooltipText={user.username}
+              />
+            ))}
         </AvatarGroup>
       </div>
     </>

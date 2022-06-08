@@ -13,8 +13,6 @@ function GroupMembers(props: IGroupMembersProps) {
     return <Member member={member} key={index} />;
   });
 
-  console.log(members);
-
   return (
     <div className="group-members-container min-w-[35px] absolute w-full flex flex-col max-h-full gap-3 overflow-y-scroll overflow-x-hidden pb-4">
       {MembersToRender}

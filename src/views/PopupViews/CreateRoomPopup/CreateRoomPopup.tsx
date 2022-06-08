@@ -64,6 +64,7 @@ function CreateRoomPopup(props: IPopupContentProps) {
           type="chat"
           editable
           className="md:w-[150px] md:h-[150px] w-[100px] h-[100px]"
+          onChange={handlePhotoChange}
         />
       </div>
       <div className="flex flex-col items-center pt-8">

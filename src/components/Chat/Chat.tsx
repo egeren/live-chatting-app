@@ -27,8 +27,6 @@ function Chat(props: ChatProps) {
     }
     return 'Send a message now!';
   }, [chatRoom.roomMessages]);
-
-  console.log('chat render');
   return (
     <div onClick={handleChatClick}>
       <Container>

@@ -26,7 +26,7 @@ function RoomDetails() {
   const handleRoomDetailsClick = () => {
     dispatch(roomDetailsBarActions.toggleRoomDetailsBar());
   };
-  console.log('roomdetails render', chatScreenData.selectedChat.roomUsers);
+
   const handleAddUsersClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     dispatch(popupActions.openPopup(AddUsersPopup));

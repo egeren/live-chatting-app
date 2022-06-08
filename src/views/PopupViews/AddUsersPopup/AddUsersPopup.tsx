@@ -36,7 +36,7 @@ function AddUsersPopup(props: IPopupContentProps) {
   const users = () => {
     const userIdsInRoom = selectedChat?.roomUsers.map((user) => user.id);
     const filteredUsers = usersData.filter((user) => {
-      return !userIdsInRoom?.includes(user.id);
+      return !userIdsInRoom?.includes(user.id) && user.isOnline;
     });
 
     return filteredUsers.map((user) => (

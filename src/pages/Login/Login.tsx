@@ -32,7 +32,6 @@ function Login() {
     socket?.emit('new-user', data);
   };
 
-  console.log('login attı');
   useEffect(() => {
     const auth = socket?.auth as SocketAuth;
     if (
@@ -43,25 +42,23 @@ function Login() {
     ) {
       socket.emit('remember-me');
     }
-    console.log(auth);
   }, []);
 
   useEffect(() => {
     if (!socket?.connected) socket?.connect();
 
     socket?.on('logged-in', (data: IUserDataStore) => {
-      console.log(data);
       dispatch(userDataActions.setUserData(data));
       dispatch(userDataActions.setUserStatus(true));
-      console.log(data);
+
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.id);
-      console.log(data);
+
       navigate('/chat');
     });
     socket?.on('error', (error) => {
       setLoading(false);
-      console.log(error);
+
       toast.error(error, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 3000,

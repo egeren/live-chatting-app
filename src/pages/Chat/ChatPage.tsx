@@ -36,11 +36,10 @@ function ChatPage() {
 
   useEffect(() => {
     const auth = socket?.auth as SocketAuth;
-    console.log(userData.isOnline);
+
     if (!userData.isOnline) {
       navigate('/');
     }
-    console.log('logine atmadı');
     socket?.emit('request-server-data');
   }, []);
 
