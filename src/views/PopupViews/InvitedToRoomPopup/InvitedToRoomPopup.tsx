@@ -13,7 +13,7 @@ function InvitedToRoomPopup(props: IPopupContentProps) {
   const socket = useContext(SocketContext);
   const userData = useAppSelector((state) => state.userData);
   const usersData = useAppSelector((state) => state.usersData);
-  console.log(usersData);
+
   const dispatch = useAppDispatch();
   const findUser = useFindUser();
   const handleInviteAccept = () => {

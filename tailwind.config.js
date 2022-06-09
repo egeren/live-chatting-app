@@ -9,7 +9,7 @@ module.exports = {
         xl: '1440px',
       },
       backgroundImage: {
-        repeated: 'url("../public/images/repeated-bg.jfif")',
+        repeated: 'url("../public/images/repeated-bg.webp")',
       },
       colors: {
         red: {

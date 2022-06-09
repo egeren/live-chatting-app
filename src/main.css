@@ -14,7 +14,7 @@
 body{
   width: 100vw;
   height: 100vh;
-  background: url('../public/images/repeated-bg.jfif');
+  background: url('../public/images/repeated-bg.webp');
 }
 
 ::-webkit-scrollbar{

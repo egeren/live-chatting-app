@@ -15,7 +15,7 @@ import { ITyper } from 'redux/ui/ChatSlice';
 
 import { InvitedToRoomPopup } from 'views/PopupViews';
 
-const socketUrl = 'localhost:8080';
+const socketUrl = 'http://195.174.194.97:8080/';
 
 export const useSocket = () => {
   let error_msg: React.ReactText;
@@ -100,8 +100,6 @@ export const useSocket = () => {
         room: data,
       };
 
-      console.log(data.roomCreator);
-
       dispatch(popupActions.setPopupData(popupData));
       dispatch(popupActions.openPopup(InvitedToRoomPopup));
     });
@@ -113,7 +111,6 @@ export const useSocket = () => {
 
     socket?.on('update-users', (data) => {
       dispatch(usersDataActions.setUsersData(data));
-      console.log(data);
     });
 
     socket?.on('update-rooms', (data: IRoomDataStore[]) => {

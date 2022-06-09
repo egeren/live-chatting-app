@@ -27,8 +27,6 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  console.log('APP ROOT RENDER!!');
-
   const socket = useSocket();
   return (
     <>
