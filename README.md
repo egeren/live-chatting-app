@@ -1,8 +1,25 @@
-# Live Chatting App (Work in Progress)
+# Live Chatting App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+I made this project to improve myself and also for my portfolio. I tried to not use any packages so all components written from scratch by myself.
+
+
+In this app you can chat with your friends and other people. You can use global chat room to have some new friends!<br/>
+Do you have secret things to tell your friends? Just create a new private room, invite your friends and chat with them!
+
+# Screenshots
+
+https://user-images.githubusercontent.com/32365178/172712934-a6ec5b32-5737-42e8-8bbe-5a10f72286cf.mp4
+
+
+
+
+# Demo
 
 ## Available Scripts
+
+If you run this app locally you need to start a socket server, [click here](https://github.com/egeren/chatting-app-server) to clone back-end repository.<br />
+After running back-end script don't forget to change <code>socketUrl</code> variable located at <code>src/hooks/useSocket.ts:18</code>
 
 In the project directory, you can run:
 
