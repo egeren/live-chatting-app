@@ -15,7 +15,7 @@ import { ITyper } from 'redux/ui/ChatSlice';
 
 import { InvitedToRoomPopup } from 'views/PopupViews';
 
-const socketUrl = 'http://195.174.194.97:8080/';
+const socketUrl = process.env.REACT_APP_SERVER_ADDRESS || 'localhost:8080';
 
 export const useSocket = () => {
   let error_msg: React.ReactText;
