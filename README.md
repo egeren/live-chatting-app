@@ -18,6 +18,9 @@ https://user-images.githubusercontent.com/32365178/172712934-a6ec5b32-5737-42e8-
 
 ## Available Scripts
 
+If you run this app locally you need to start a socket server, [click here](https://github.com/egeren/chatting-app-server) to clone back-end repository.<br />
+After running back-end script don't forget to change <code>socketUrl</code> variable located at <code>src/hooks/useSocket.ts:18</code>
+
 In the project directory, you can run:
 
 ### `npm start`
