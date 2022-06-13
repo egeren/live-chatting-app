@@ -70,9 +70,15 @@ interface IPhotoContentProps extends ProfilePhotoProps {
 const PhotoContent = (props: IPhotoContentProps) => {
   const { photo, type } = props;
 
+  const url = process.env.REACT_APP_SERVER_ADDRESS;
+
   if (photo && !photo.includes('{gradient}')) {
     return (
-      <img src={photo} alt="profile" className="w-full h-full object-cover" />
+      <img
+        src={photo.includes('blob') ? photo : url + '/' + photo}
+        alt="profile"
+        className="w-full h-full object-cover"
+      />
     );
   } else {
     if (type === 'chat') {
