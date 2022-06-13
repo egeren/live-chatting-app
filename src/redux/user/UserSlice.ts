@@ -9,11 +9,14 @@ export interface IUserDataStore {
 }
 
 const initialState: IUserDataStore = {
-  id: '',
+  id:
+    localStorage.getItem('userId') != null
+      ? localStorage.getItem('userId')!
+      : '',
   username: '',
   avatar: '',
   isOnline: false,
-  token: '',
+  token: localStorage.getItem('userId') ? localStorage.getItem('token')! : '',
 };
 
 const { actions, reducer } = createSlice({
@@ -39,6 +42,16 @@ const { actions, reducer } = createSlice({
     },
     setUserStatus: (state, action) => {
       state.isOnline = action.payload;
+    },
+    logout: (state) => {
+      state = {
+        id: '',
+        username: '',
+        avatar: '',
+        isOnline: false,
+        token: '',
+      };
+      return state;
     },
   },
 });

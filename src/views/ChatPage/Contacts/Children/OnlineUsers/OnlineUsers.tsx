@@ -6,21 +6,16 @@ import { useAppSelector } from 'hooks';
 import { IUserDataStore } from 'redux/user/UserSlice';
 
 function OnlineUsers(props: ContactBarProps) {
-  const usersData = useAppSelector((state) => state.usersData);
   const { expanded } = props;
   return (
     <div className="flex flex-shrink-0 flex-col w-full">
-      {expanded ? (
-        <Expanded usersData={usersData} />
-      ) : (
-        <Collapsed usersData={usersData} />
-      )}
+      {expanded ? <Expanded /> : <Collapsed />}
     </div>
   );
 }
 
-const Expanded = (props: { usersData: IUserDataStore[] }) => {
-  const { usersData } = props;
+const Expanded = () => {
+  const usersData = useAppSelector((state) => state.usersData);
   return (
     <>
       <h3 className="font-primary text-white py-2">
@@ -44,14 +39,14 @@ const Expanded = (props: { usersData: IUserDataStore[] }) => {
   );
 };
 
-const Collapsed = (props: { usersData: IUserDataStore[] }) => {
-  const { usersData } = props;
+const Collapsed = () => {
+  const usersData = useAppSelector((state) => state.usersData);
   return (
     <div className="pt-3">
       <IoPerson className="text-lg text-green-500 text-center w-full" />
       <div className="flex w-full">
         <h1 className="font-primary text-white text-center w-full">
-          {usersData.length}+
+          {usersData.filter((user) => user.isOnline).length}+
         </h1>
       </div>
     </div>

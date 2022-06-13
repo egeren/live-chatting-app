@@ -2,45 +2,25 @@ import React, { useState, useEffect, useContext } from 'react';
 import Contacts from 'views/ChatPage/Contacts';
 import ChatView from 'views/ChatPage/ChatView';
 import RoomDetails from 'views/ChatPage/RoomDetails';
-import { SocketAuth, useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { Popup } from 'components';
-import { CreateRoomPopup, InvitedToRoomPopup } from 'views/PopupViews';
-import {
-  chatScreenActions,
-  contactBarActions,
-  popupActions,
-  roomDetailsBarActions,
-  roomsDataActions,
-  userDataActions,
-  usersDataActions,
-} from 'store';
+import { contactBarActions, roomDetailsBarActions } from 'store';
 import { SocketContext } from 'App';
-import { IMessageData, IRoomDataStore } from 'redux/rooms/RoomsSlice';
-import { IUserDataStore } from 'redux/user/UserSlice';
-import { toast } from 'react-toastify';
-import { ITyper } from 'redux/ui/ChatSlice';
 import { useFindUser } from 'hooks/useFindUser';
 import { useNavigate } from 'react-router-dom';
 import 'styles/ui.css';
 
 function ChatPage() {
-  const userData = useAppSelector((state) => state.userData);
   const contactsBarStore = useAppSelector((state) => state.contactsBar);
   const roomDetailsBarStore = useAppSelector((state) => state.roomDetailsBar);
   const selectedChat = useAppSelector((state) => state.chatScreenData);
   const popupStore = useAppSelector((state) => state.popup);
   const dispatch = useAppDispatch();
-  const findUser = useFindUser();
-  const navigate = useNavigate();
   const socket = useContext(SocketContext);
 
   useEffect(() => {
-    const auth = socket?.auth as SocketAuth;
-
-    if (!userData.isOnline) {
-      navigate('/');
-    }
     socket?.emit('request-server-data');
+    console.log('emitted request data');
   }, []);
 
   const handleBackdropClick = () => {
@@ -59,7 +39,7 @@ function ChatPage() {
     <div className="chat-wrapper w-full h-full flex flex-auto md:p-6 rounded-xl">
       <div
         className={
-          'relative flex w-full h-full bg-primary-100 md:rounded-xl overflow-hidden lg:p-0 md:pl-[80px] sm:pl-[70px] pl-[50px]' +
+          'relative flex w-full h-full bg-primary-100 md:rounded-xl overflow-hidden lg:p-0 md:pl-[80px] sm:pl-[70px] pl-[50px] ' +
           roomDetailsOffset
         }
       >

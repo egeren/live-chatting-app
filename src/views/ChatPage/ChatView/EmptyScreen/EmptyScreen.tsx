@@ -1,6 +1,5 @@
+import React from 'react';
 import { Button } from 'components';
-import { useAppSelector } from 'hooks';
-import React, { useState, useEffect } from 'react';
 import Lottie from 'react-lottie';
 import { AddUsersPopup } from 'views/PopupViews';
 import * as animationData from './users-lottie.json';

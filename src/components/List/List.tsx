@@ -1,6 +1,5 @@
 import Checkbox from 'components/Checkbox';
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import Member from 'views/ChatPage/RoomDetails/Children/Member/Member';
 
 interface ListProps {
   children: React.ReactNode;
@@ -16,9 +15,11 @@ const ListContext = createContext<IListContext | undefined>(undefined);
 function List(props: ListProps) {
   const { children, onChange } = props;
   const [selectedItems, setSelectedItems] = useState([] as any);
+
   useEffect(() => {
     onChange(selectedItems);
   }, [selectedItems]);
+
   return (
     <ListContext.Provider value={{ selectedItems, setSelectedItems }}>
       <div className="list-wrapper">{children}</div>

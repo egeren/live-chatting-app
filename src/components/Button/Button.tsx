@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { IconType } from 'react-icons';
-import { IoAccessibility } from 'react-icons/io5';
 import { ButtonStyled, Container } from './stlyed';
 
 export interface IButtonProps
@@ -17,8 +16,8 @@ function Button(props: IButtonProps) {
       <ButtonStyled {...rest}>
         <p className="flex flex-shrink-0 text-center">{value}</p>
         {icon && (
-          <div className="icon-container">
-            {React.createElement(icon, { className: 'w-full h-full text-2xl' })}
+          <div className="icon-container h-8 w-8">
+            {React.createElement(icon, { className: 'w-full h-full text-xl' })}
           </div>
         )}
       </ButtonStyled>

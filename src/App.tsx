@@ -1,17 +1,25 @@
-import React, { createContext, useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/Login';
 import Chat from 'pages/Chat';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppDispatch, useAppSelector, useSocket } from 'hooks';
-import { contactBarActions, roomDetailsBarActions } from 'store';
+import {
+  contactBarActions,
+  roomDetailsBarActions,
+  userDataActions,
+} from 'store';
 import { Socket } from 'socket.io-client';
+import { useContext } from 'react';
+import { IUserDataStore } from 'redux/user/UserSlice';
 
 const SocketContext = React.createContext(null as Socket | null);
 
 function App() {
   const dispatch = useAppDispatch();
+
+  // contact bar and room details bar handlers
   useEffect(() => {
     const handleResize = (e: UIEvent) => {
       const window = e.target as Window;
@@ -27,6 +35,8 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  //auth handlers
+
   const socket = useSocket();
   return (
     <>
@@ -36,7 +46,15 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/chat" element={<Chat />} />
+              <Route
+                path="/chat"
+                element={
+                  <RequireAuth>
+                    <Chat />
+                  </RequireAuth>
+                }
+              />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </BrowserRouter>
         </SocketContext.Provider>
@@ -57,6 +75,42 @@ function App() {
     </>
   );
 }
+
+interface RequireAuthProps {
+  children: JSX.Element;
+}
+
+const RequireAuth = (props: RequireAuthProps) => {
+  const { children } = props;
+  const userData = useAppSelector((state) => state.userData);
+  const socket = useContext(SocketContext);
+  const dispatch = useAppDispatch();
+  console.log(userData.token);
+
+  useEffect(() => {
+    socket?.on('logged-in', (data: IUserDataStore) => {
+      dispatch(userDataActions.setUserData(data));
+      dispatch(userDataActions.setUserStatus(true));
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userId', data.id);
+    });
+
+    return () => {
+      socket?.off('logged-in');
+    };
+  }, []);
+  if (
+    userData.token == null ||
+    userData.token == '' ||
+    userData.token == undefined ||
+    userData.isOnline == false
+  ) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};
 
 export default App;
 export { SocketContext };

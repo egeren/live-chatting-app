@@ -8,6 +8,6 @@ export interface TextInputProps {
   iconPosition?: 'left' | 'right';
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onSend?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onSend?: (value: string) => void;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

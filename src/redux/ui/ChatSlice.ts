@@ -20,6 +20,11 @@ const initialState: IChatSlice = {
   typers: [],
 };
 
+interface IShouldAddUser {
+  user: IUserDataStore;
+  room: IRoomDataStore;
+}
+
 const { reducer, actions } = createSlice({
   name: 'chatScreenData',
   initialState: initialState,
@@ -55,6 +60,31 @@ const { reducer, actions } = createSlice({
         state.selectedChat.roomUsers.push(action.payload);
       }
       return state;
+    },
+    shouldUpdateSelectedChat: (
+      state,
+      action: PayloadAction<IRoomDataStore[]>
+    ) => {
+      action.payload.forEach((room) => {
+        if (room.id === state.selectedChat?.id) {
+          state.selectedChat = room;
+        }
+      });
+      return state;
+    },
+    shouldAddUser(state, action: PayloadAction<IShouldAddUser>) {
+      if (action.payload.room.id === state.selectedChat?.id) {
+        state.selectedChat.roomUsers.push(action.payload.user);
+      }
+    },
+    addUserIfRoomIsSelected(
+      state,
+      action: PayloadAction<{ roomId: string; user: IUserDataStore }>
+    ) {
+      if (state.selectedChat?.id === action.payload.roomId) {
+        state.selectedChat.roomUsers.push(action.payload.user);
+        return state;
+      }
     },
   },
 });

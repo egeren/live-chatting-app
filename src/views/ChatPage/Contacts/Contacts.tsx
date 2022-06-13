@@ -1,11 +1,11 @@
-import React, { MouseEventHandler, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import ChatRooms from './Children/ChatRooms';
 import ProfileInfo from './Children/ProfileInfo';
 import { Container } from './styled';
 import SearchBar from './Children/SearchBar';
 import OnlineUsers from './Children/OnlineUsers';
-import { contactBarActions, popupActions } from 'store';
+import { contactBarActions } from 'store';
 
 function Contacts() {
   const contactsBarStore = useAppSelector((state) => state.contactsBar);
@@ -32,7 +32,7 @@ function Contacts() {
     setRoomsDataState(roomsData);
   }, [roomsData]);
   return (
-    <div onClick={handleContactBarClick}>
+    <div className="w-fit h-full" onClick={handleContactBarClick}>
       <Container id="contacts-container" $expanded={expanded}>
         <ProfileInfo />
         <div className="flex flex-col w-full h-full overflow-y-scroll">

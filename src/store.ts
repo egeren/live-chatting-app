@@ -35,8 +35,6 @@ import {
   actions as chatScreenActions,
 } from './redux/ui/ChatSlice';
 
-import { userMiddleWare } from 'redux/middleware/userMiddleware';
-
 const store = configureStore({
   reducer: {
     userData: userDataReducer,

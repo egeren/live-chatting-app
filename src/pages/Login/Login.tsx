@@ -9,7 +9,6 @@ import { userDataActions } from 'store';
 import { IUserDataStore } from 'redux/user/UserSlice';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { SocketAuth } from 'hooks';
 
 function Login() {
   const [photo, setProfilePhoto] = useState('default');
@@ -19,10 +18,20 @@ function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (
+      userData.token != '' &&
+      userData.token != null &&
+      userData.token != undefined
+    ) {
+      socket?.emit('remember-me');
+      console.log(userData.token, '@@@');
+    }
+  }, []);
+
+  const handleLogin = (value: string) => {
     setLoading(true);
-    const target = e.target as HTMLInputElement;
-    const userName = target.value;
+    const userName = value;
 
     const data = {
       username: userName,
@@ -31,18 +40,6 @@ function Login() {
 
     socket?.emit('new-user', data);
   };
-
-  useEffect(() => {
-    const auth = socket?.auth as SocketAuth;
-    if (
-      socket &&
-      auth.token != 'undefined' &&
-      auth.userId &&
-      !userData.isOnline
-    ) {
-      socket.emit('remember-me');
-    }
-  }, []);
 
   useEffect(() => {
     if (!socket?.connected) socket?.connect();

@@ -22,8 +22,18 @@ function Photo(props: ProfilePhotoProps) {
       e.target.files[0] &&
       e.target.files[0].type.includes('image')
     ) {
-      setSelectedPhoto(URL.createObjectURL(e.target.files[0]));
-      if (onChange) onChange(e);
+      if (e.target.files[0].size > 3000000) {
+        toast.error('Image file should under 3MB.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          theme: 'light',
+        });
+      } else {
+        setSelectedPhoto(URL.createObjectURL(e.target.files[0]));
+        if (onChange) onChange(e);
+      }
     } else {
       toast.error('Please select an image file.', {
         position: toast.POSITION.BOTTOM_CENTER,

@@ -25,21 +25,21 @@ export const Container = styled.div`
 
 export const ProfilePhotoContainer = styled.div`
   profile-container
-  flex flex-col self-center
+  block flex-col self-center
   flex-shrink-0
   transition-all
 `;
 
 export const RoomTitleContainer = styled.div`
   room-title-container
-  flex flex-col text-center font-primary
+  block flex-col text-center font-primary
   transition-all
 
 `;
 
 export const RoomDescriptionContainer = styled.div`
   room-description-container
-  flex flex-col-reverse text-center font-primary
+  block flex-col-reverse text-center font-primary
   transition-all
 `;
 

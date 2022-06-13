@@ -16,20 +16,21 @@ function ChatScreen(props: ChatScreenProps) {
   const socket = useContext(SocketContext);
   const userData = useAppSelector((state) => state.userData);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [message, setMessage] = useState<string>('');
 
-  const handleSendMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const target = e.target as HTMLInputElement;
-    if (target.value !== '') {
+  const handleSendMessage = (value: string) => {
+    if (value !== '') {
       socket?.emit('send-chat-message', {
         roomId: chatRoom.id,
-        message: target.value,
+        message: value,
       });
       setLastTypingSend(new Date(0));
     }
-    target.value = '';
+    setMessage('');
   };
 
-  const handleTyping = () => {
+  const handleTyping = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value);
     if (lastTypingSend.getTime() + 5000 < new Date().getTime()) {
       setLastTypingSend(new Date());
       socket?.emit('typing', {
@@ -69,6 +70,7 @@ function ChatScreen(props: ChatScreenProps) {
           icon={<IoSend />}
           iconPosition="right"
           iconClass="text-white cursor-pointer"
+          value={message}
           onSend={handleSendMessage}
           onChange={handleTyping}
         />

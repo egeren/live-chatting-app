@@ -15,32 +15,27 @@ import { ITyper } from 'redux/ui/ChatSlice';
 
 import { InvitedToRoomPopup } from 'views/PopupViews';
 
-const socketUrl = process.env.REACT_APP_SERVER_ADDRESS || 'localhost:8081';
+const socketUrl = process.env.REACT_APP_SERVER_ADDRESS || 'localhost:8080';
 
 export const useSocket = () => {
   let error_msg: React.ReactText;
-  const selectedChat = useAppSelector((state) => state.chatScreenData);
+  const userData = useAppSelector((state) => state.userData);
   const dispatch = useAppDispatch();
 
   const socket = useMemo(() => {
+    console.log('socketmemo', userData.token);
     return io(socketUrl, {
       auth: {
-        token:
-          localStorage.getItem('token') != 'undefined' &&
-          localStorage.getItem('token')
-            ? localStorage.getItem('token')
-            : uuid(),
-        userId:
-          localStorage.getItem('userId') != 'undefined' &&
-          localStorage.getItem('token')
-            ? localStorage.getItem('userId')
-            : uuid(),
+        token: userData.token ? userData.token : uuid(),
+        userId: userData.id ? userData.id : uuid(),
       },
     });
-  }, []);
+  }, [userData.token]);
 
   useEffect(() => {
     socket.on('connect', () => {
+      console.log('socket connected');
+      console.log(socket.auth);
       if (toast.isActive(error_msg)) {
         toast.dismiss(error_msg);
         toast.success('Connected to server!');
@@ -69,6 +64,8 @@ export const useSocket = () => {
         messages: any;
         rooms: IRoomDataStore[];
       }) => {
+        console.log('server data received');
+        console.log(data);
         dispatch(roomsDataActions.setRoomsData(data.rooms));
         dispatch(usersDataActions.setUsersData(data.users));
       }
@@ -104,10 +101,13 @@ export const useSocket = () => {
       dispatch(popupActions.openPopup(InvitedToRoomPopup));
     });
 
-    socket?.on('join-room', (data) => {
-      dispatch(roomsDataActions.addUserToRoom(data));
-      dispatch(chatScreenActions.addUserToSelectedChat(data.user));
-    });
+    socket?.on(
+      'join-room',
+      (data: { roomId: string; user: IUserDataStore }) => {
+        dispatch(roomsDataActions.addUserToRoom(data));
+        dispatch(chatScreenActions.addUserIfRoomIsSelected(data));
+      }
+    );
 
     socket?.on('update-users', (data) => {
       dispatch(usersDataActions.setUsersData(data));
@@ -116,11 +116,7 @@ export const useSocket = () => {
     socket?.on('update-rooms', (data: IRoomDataStore[]) => {
       dispatch(roomsDataActions.setRoomsData(data));
 
-      data.forEach((room) => {
-        if (room.id === selectedChat.selectedChat?.id) {
-          dispatch(chatScreenActions.setSelectedChat(room));
-        }
-      });
+      dispatch(chatScreenActions.shouldUpdateSelectedChat(data));
     });
 
     return () => {
@@ -136,7 +132,7 @@ export const useSocket = () => {
       socket?.off('update-users');
       socket?.off('update-rooms');
     };
-  }, []);
+  }, [userData.token]);
 
   return socket;
 };

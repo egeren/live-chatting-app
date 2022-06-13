@@ -1,6 +1,5 @@
-import { useAppSelector } from 'hooks';
 import React from 'react';
-import { IoSend } from 'react-icons/io5';
+import { useAppSelector } from 'hooks';
 import ChatScreen from './ChatScreen';
 import EmptyScreen from './EmptyScreen';
 import WelcomeScreen from './WelcomeScreen';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Photo, TextInput, Button } from 'components';
 import { IoClose } from 'react-icons/io5';
 import { IPopupContentProps } from 'helpers/interfaces/components';

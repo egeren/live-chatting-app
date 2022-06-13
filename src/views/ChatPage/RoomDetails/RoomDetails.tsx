@@ -43,7 +43,7 @@ function RoomDetails() {
         <RoomDescriptionContainer>
           <p>{roomDescription}</p>
         </RoomDescriptionContainer>
-        <div className="flex flex-col flex-shrink-0 h-full pt-6">
+        <div className="flex flex-1 flex-col flex-shrink-0 h-full pt-6 pb-2">
           <div className="flex justify-between items-center">
             <RoomMembersTitle>
               Users in this room - {roomUsers.length}
@@ -57,7 +57,7 @@ function RoomDetails() {
               </div>
             )}
           </div>
-          <div className="flex relative h-full pt-4">
+          <div className="flex-1 relative pt-4">
             <GroupMembers members={chatScreenData.selectedChat.roomUsers} />
           </div>
         </div>

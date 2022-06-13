@@ -10,14 +10,18 @@ interface IGroupMembersProps {
 function GroupMembers(props: IGroupMembersProps) {
   const { members } = props;
   const MembersToRender = members.map((member, index) => {
-    return <Member member={member} key={index} />;
+    return (
+      <div className="h-13" key={index}>
+        <Member member={member} />
+      </div>
+    );
   });
 
   return (
-    <div className="group-members-container min-w-[35px] absolute w-full flex flex-col max-h-full gap-3 overflow-y-scroll overflow-x-hidden pb-4">
+    <div className="group-members-container min-w-[35px] absolute w-full flex flex-col h-full gap-3 overflow-y-scroll overflow-x-hidden pb-4">
       {MembersToRender}
     </div>
   );
 }
 
-export default React.memo(GroupMembers);
+export default GroupMembers;

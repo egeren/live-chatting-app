@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TextInputProps } from 'helpers/interfaces/components';
 import { Container, IconContainer } from './styled';
 
 function TextInput(props: TextInputProps) {
+  const [text, setText] = useState('');
   const {
+    value,
     placeholder,
     className,
     icon,
@@ -14,21 +16,36 @@ function TextInput(props: TextInputProps) {
     onClick,
   } = props;
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+    if (onChange) onChange(e);
+  };
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && onSend) {
-      onSend(e);
+      onSend(text);
+    }
+  };
+
+  const handleIconClick = () => {
+    if (onSend) {
+      onSend(text);
     }
   };
   return (
     <Container styles={className} $iconPosition={iconPosition}>
-      {icon && <IconContainer styles={iconClass}>{icon}</IconContainer>}
+      {icon && (
+        <div onClick={handleIconClick}>
+          <IconContainer styles={iconClass}>{icon}</IconContainer>
+        </div>
+      )}
       <input
         type="text"
         className="w-full h-full outline-none pl-1 truncate bg-transparent"
         placeholder={placeholder}
         onKeyUp={handleKeyPress}
-        onChange={onChange}
+        onChange={handleOnChange}
         onClick={onClick}
+        value={value}
       />
     </Container>
   );

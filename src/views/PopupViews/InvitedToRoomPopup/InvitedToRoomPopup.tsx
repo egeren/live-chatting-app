@@ -1,9 +1,9 @@
+import React, { useContext } from 'react';
 import { SocketContext } from 'App';
 import { Button, Photo, TextInput } from 'components';
 import { IPopupContentProps } from 'helpers/interfaces/components';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useFindUser } from 'hooks/useFindUser';
-import React, { useState, useEffect, useContext } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { IRoomDataStore } from 'redux/rooms/RoomsSlice';
 import { roomsDataActions } from 'store';

@@ -1,5 +1,5 @@
+import React from 'react';
 import { useAppSelector } from 'hooks';
-import React, { useState, useEffect } from 'react';
 import { ChatScreenProps } from '../ChatScreen';
 
 function Typers(props: ChatScreenProps) {

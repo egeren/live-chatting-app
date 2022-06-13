@@ -1,8 +1,7 @@
+import React from 'react';
 import Photo from 'components/Photo/Photo';
 import { useFindUser } from 'hooks/useFindUser';
-import React from 'react';
 import { IMessageData } from 'redux/rooms/RoomsSlice';
-import { IUserDataStore } from 'redux/user/UserSlice';
 import { DateTime } from 'luxon';
 
 interface MessageProps {
@@ -14,7 +13,7 @@ function Message(props: MessageProps) {
   const messageSender = useFindUser()(message.userId);
   if (!messageSender) return <></>;
   return (
-    <div className="flex flex-row pt-3">
+    <div className="flex flex-row pt-3 break-all">
       <div className="flex">
         <Photo
           photo={messageSender.avatar}

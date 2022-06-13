@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { popupActions } from 'store';
 

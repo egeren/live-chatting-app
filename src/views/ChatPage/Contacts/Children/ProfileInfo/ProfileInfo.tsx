@@ -6,7 +6,7 @@ import { Container, IconsContainer } from './styled';
 import { useAppSelector } from 'hooks';
 import { SocketContext } from 'App';
 import { useDispatch } from 'react-redux';
-import { roomsDataActions, userDataActions } from 'store';
+import { chatScreenActions, roomsDataActions, userDataActions } from 'store';
 import { useNavigate } from 'react-router-dom';
 
 function ProfileInfo() {
@@ -30,15 +30,18 @@ function ProfileInfo() {
   };
 
   const handleLogout = () => {
-    socket?.disconnect();
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    dispatch(chatScreenActions.setSelectedChat(null));
+    dispatch(roomsDataActions.setRoomsData([]));
+    dispatch(userDataActions.logout());
+    socket?.disconnect();
     navigate('/');
   };
   return (
     <Container>
       <Photo
-        className="xl:w-[70px] xl:h-[70px] lg:w-[60px] lg:h-[60px] md:w-[50px] md:h-[50px] sm:w-[50px] w-[40px] h-[40px] sm:h-[50px] flex flex-shrink-0"
+        className="xl:w-[70px] xl:h-[70px] lg:w-[60px] lg:h-[60px] md:w-[50px] md:h-[50px] sm:w-[50px]  sm:h-[50px]  w-[40px] h-[40px] flex flex-shrink-0"
         editable
         photo={userData.avatar}
         onChange={handlePhotoChange}

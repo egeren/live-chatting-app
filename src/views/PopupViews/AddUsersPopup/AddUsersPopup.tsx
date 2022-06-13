@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { IPopupContentProps } from 'helpers/interfaces/components';
 import { IoClose } from 'react-icons/io5';
-import { Button, List, Photo, TextInput } from 'components';
+import { Button, List } from 'components';
 import Member from 'views/ChatPage/RoomDetails/Children/Member/Member';
 import { useAppSelector } from 'hooks';
 import { IUserDataStore } from 'redux/user/UserSlice';
@@ -41,7 +41,7 @@ function AddUsersPopup(props: IPopupContentProps) {
 
     return filteredUsers.map((user) => (
       <List.Item itemData={user} key={user.id} checkable>
-        <div className="h-10">
+        <div className="w-full h-10">
           <Member member={user} />
         </div>
       </List.Item>

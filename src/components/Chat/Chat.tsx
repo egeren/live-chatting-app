@@ -1,9 +1,8 @@
 import Photo from 'components/Photo';
 import { ChatProps } from 'helpers/interfaces/components';
-import { ContactBarProps } from 'helpers/interfaces/store';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useFindUser } from 'hooks/useFindUser';
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { chatScreenActions } from 'store';
 import { ChatImageContainer, Container } from './styled';
 
