@@ -47,7 +47,7 @@ function ProfileInfo() {
         onChange={handlePhotoChange}
       />
 
-      <div className="user-info-container flex w-full">
+      <div className="user-info-container overflow-hidden flex flex-1">
         <h2 className="text-white truncate font-primary xl:text-2xl lg:text-xl md:text-lg sm:text-base text-base">
           {userData.username}
         </h2>
