@@ -23,12 +23,14 @@ function TextInput(props: TextInputProps) {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && onSend) {
       onSend(text);
+      setText('');
     }
   };
 
   const handleIconClick = () => {
     if (onSend) {
       onSend(text);
+      setText('');
     }
   };
   return (

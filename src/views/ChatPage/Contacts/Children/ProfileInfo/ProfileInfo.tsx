@@ -36,7 +36,7 @@ function ProfileInfo() {
     dispatch(roomsDataActions.setRoomsData([]));
     dispatch(userDataActions.logout());
     socket?.disconnect();
-    navigate('/');
+    window.location.href = '/';
   };
   return (
     <Container>

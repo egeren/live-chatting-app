@@ -30,7 +30,7 @@ export const useSocket = () => {
         userId: userData.id ? userData.id : uuid(),
       },
     });
-  }, [userData.token]);
+  }, []);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -83,6 +83,7 @@ export const useSocket = () => {
         username: '',
       };
       dispatch(chatScreenActions.removeTyper(typerToRemoved));
+      console.log(data);
     });
     socket?.on('someone-typing', (data) => {
       dispatch(chatScreenActions.addTyper(data));
@@ -132,7 +133,7 @@ export const useSocket = () => {
       socket?.off('update-users');
       socket?.off('update-rooms');
     };
-  }, [userData.token]);
+  }, []);
 
   return socket;
 };
