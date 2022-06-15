@@ -67,6 +67,7 @@ export const useSocket = () => {
         console.log('server data received');
         console.log(data);
         dispatch(roomsDataActions.setRoomsData(data.rooms));
+        dispatch(chatScreenActions.shouldUpdateSelectedChat(data.rooms));
         dispatch(usersDataActions.setUsersData(data.users));
       }
     );
